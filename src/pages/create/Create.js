@@ -11,6 +11,14 @@ const Create = () => {
     const handleSubmit = (e) =>{
         e.preventDefault();
         console.log( title , method , cookingTime, ingredients);
+        const obj = { title , ingredients, method, cookingTime};
+        fetch("http://localhost:3000/recipes", {
+            method: "POST",
+            body: JSON.stringify(obj),
+            headers: { "Content-type": "application/json; charset=UTF-8"}
+        })
+        .then( data => console.log(data))
+        .catch( err => console.log(err));
     }
     const handleAdd = (e) =>{
         e.preventDefault();
