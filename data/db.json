@@ -38,49 +38,25 @@
       "cookingTime": "35 minutes"
     },
     {
-      "title": "afd",
+      "title": "maggie",
       "ingredients": [
-        "adsf"
+        "maggie",
+        "water",
+        "salt",
+        "veggie"
       ],
-      "method": "adga",
-      "cookingTime": "3",
-      "id": "_tbEnJV"
+      "method": "pour everything and cook it for 2 minutes",
+      "cookingTime": "2",
+      "id": "vACyskn"
     },
     {
-      "title": "adf",
+      "title": "how to make pizza",
       "ingredients": [
-        "adf"
+        "maida"
       ],
-      "method": "er",
-      "cookingTime": "23",
-      "id": "QSqISsA"
-    },
-    {
-      "title": "adf",
-      "ingredients": [
-        "adf"
-      ],
-      "method": "er",
-      "cookingTime": "23",
-      "id": "E2v1zUu"
-    },
-    {
-      "title": "adf",
-      "ingredients": [
-        "adf"
-      ],
-      "method": "er",
-      "cookingTime": "23",
-      "id": "91t1cv5"
-    },
-    {
-      "title": "adf",
-      "ingredients": [
-        "adf"
-      ],
-      "method": "er",
-      "cookingTime": "23",
-      "id": "yc5p76E"
+      "method": "add maida and something else and then cook for some time",
+      "cookingTime": "24",
+      "id": "4UH1n8P"
     }
   ]
 }

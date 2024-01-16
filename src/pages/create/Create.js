@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import './Create.css'
 import {useRef, useState} from 'react';
 
@@ -8,6 +9,8 @@ const Create = () => {
     const [ingredients, setIngredients] = useState([]);
     const [newIngredient, setNewIngredient] = useState('');
     const ingredientInput = useRef(null);
+    const navigate = useNavigate();
+    
     const handleSubmit = (e) =>{
         e.preventDefault();
         console.log( title , method , cookingTime, ingredients);
@@ -17,7 +20,10 @@ const Create = () => {
             body: JSON.stringify(obj),
             headers: { "Content-type": "application/json; charset=UTF-8"}
         })
-        .then( data => console.log(data))
+        .then( data => {
+            console.log(data)
+            navigate("/");            
+        })
         .catch( err => console.log(err));
     }
     const handleAdd = (e) =>{
