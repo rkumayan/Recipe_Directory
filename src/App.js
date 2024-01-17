@@ -1,6 +1,8 @@
 
 import './App.css';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
+
+// import route pages
 import Home from './pages/home/Home';
 import Create from './pages/create/Create';
 import Recipe from './pages/recipe/Recipe';
