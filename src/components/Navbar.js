@@ -1,17 +1,18 @@
 import { Link } from 'react-router-dom';
-import { useContext } from 'react';
 // import css
 import './Navbar.css'
 
 // custom hooks
 import { useTheme } from '../hooks/useTheme';
+
 import SearchBar from './SearchBar';
 
 const Navbar = () => {
-    const {color} = useTheme();
+    let {color, changeColor} = useTheme();
+    
     return ( 
         <div className="navbar" style = { {background : color}}>
-            <nav>
+            <nav onClick={ () => changeColor("red")}>
                 <Link to = "/" className='brand'>
                     <h1>Cooking Komi</h1>
                 </Link>
