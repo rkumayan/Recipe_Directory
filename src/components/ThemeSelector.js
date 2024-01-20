@@ -1,18 +1,22 @@
 import './ThemeSelector.css';
-
+import modeIcon from '../assets/dark_mode_FILL0_wght400_GRAD0_opsz24.svg'
 import { useTheme } from '../hooks/useTheme';
 
 const themeColors = ['red', 'green','blue', '#58249c'];
 
 const ThemeSelector = () => {
-    const {changeColor, changeBgColor, bodyColor} = useTheme();
+    const {changeColor, changeMode, mode} = useTheme();
     return ( 
         <div className="theme-selector">
-            <button
+            <img
+                src={modeIcon} alt="light and dark mode toggle button" 
                 onClick={ ()=>{
-                    changeBgColor( bodyColor === '#dfdfdf' ? 'black' : '#dfdfdf');
+                    changeMode( mode === 'light' ? 'dark' : 'light');                    
                 }}
-            >switch</button>
+                style = { { filter: mode === 'light' ? 'invert(20%)' : 'invert(100%)'}}
+            >
+                
+            </img>
             <div className="theme-buttons">
                 {themeColors.map( color =>(
                     <div key = {color} 

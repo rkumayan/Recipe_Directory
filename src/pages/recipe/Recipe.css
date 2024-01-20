@@ -33,3 +33,9 @@
     font-size:20px;
 }
 
+.recipe.dark{
+    background-color: #555;
+}
+.recipe.dark ul li{
+    color:white;
+}

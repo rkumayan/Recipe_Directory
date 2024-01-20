@@ -46,6 +46,12 @@
     border-radius: 4px;
     margin: 20px auto 0;
 }
+.recipe-list .recipe.dark{
+    background-color: #555;
+}
+.recipe.dark p, .recipe.dark h3, .recipe.dark div{
+    color:white;
+}
 
 @media only screen and (max-width: 1000px) {
     .recipe-list{        

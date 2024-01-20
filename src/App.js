@@ -12,9 +12,9 @@ import ThemeSelector from './components/ThemeSelector';
 
 import {useTheme} from './hooks/useTheme';
 function App() {
-  const {bodyColor } = useTheme();
+  const {mode} = useTheme();
   return (
-    <div className="App" style = { {backgroundColor : bodyColor}}>
+    <div className= {`App ${mode}`}>
       
       <BrowserRouter>
         <Navbar />

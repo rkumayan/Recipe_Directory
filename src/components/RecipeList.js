@@ -1,10 +1,13 @@
 import './RecipeList.css'
 import {Link} from 'react-router-dom'
+import {useTheme} from '../hooks/useTheme';
 const RecipeList = ( {recipes}) => {
+    const {mode} = useTheme();
+
     return ( 
-        <div className="recipe-list">
+        <div className= {`recipe-list`}>
             { recipes.map( recipe => (
-                <div className="recipe" key = {recipe.id}>
+                <div className={`recipe  ${mode}`} key = {recipe.id}>
                     <h3> {recipe.title} </h3>
                     <p> {recipe.cookingTime} to make.</p>
 

@@ -1,6 +1,7 @@
 .theme-selector{
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    margin:0 20px;
 }
 .theme-buttons div{
     display:inline-block;
@@ -9,4 +10,7 @@
     margin:5px;
     border-radius: 50%;
     cursor: pointer;
+}
+.theme-selector img{
+    cursor:pointer;
 }
