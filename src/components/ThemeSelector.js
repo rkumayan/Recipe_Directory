@@ -5,10 +5,14 @@ import { useTheme } from '../hooks/useTheme';
 const themeColors = ['red', 'green','blue', '#58249c'];
 
 const ThemeSelector = () => {
-    const {changeColor} = useTheme();
+    const {changeColor, changeBgColor, bodyColor} = useTheme();
     return ( 
         <div className="theme-selector">
-        
+            <button
+                onClick={ ()=>{
+                    changeBgColor( bodyColor === '#dfdfdf' ? 'black' : '#dfdfdf');
+                }}
+            >switch</button>
             <div className="theme-buttons">
                 {themeColors.map( color =>(
                     <div key = {color} 
