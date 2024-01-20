@@ -26,3 +26,15 @@
     background:white;
     color:black;
 }
+
+@media only screen and (max-width: 600px) {
+    .navbar{
+        padding:5px;
+    }
+    .navbar a.brand{
+        font-size: 18px;
+    }
+    .navbar a:last-child{
+        font-size: 10px;
+    }
+}

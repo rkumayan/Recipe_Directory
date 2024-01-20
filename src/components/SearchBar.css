@@ -5,3 +5,13 @@
 .search-bar input{
     margin-left : 10px;
 }
+
+@media only screen and (max-width: 600px) {
+    .search-bar label{
+        font-size:15px;
+    }
+    .search-bar input{
+        margin-left:1px;
+        width:120px;
+    }
+}
