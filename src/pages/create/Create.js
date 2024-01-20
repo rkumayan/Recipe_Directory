@@ -15,7 +15,7 @@ const Create = () => {
         e.preventDefault();
         console.log( title , method , cookingTime, ingredients);
         const obj = { title , ingredients, method, cookingTime};
-        fetch("http://localhost:3000/recipes", {
+        fetch("https://cooking-komi013.onrender.com/recipes/", {
             method: "POST",
             body: JSON.stringify(obj),
             headers: { "Content-type": "application/json; charset=UTF-8"}
