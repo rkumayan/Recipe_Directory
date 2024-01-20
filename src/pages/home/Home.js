@@ -2,7 +2,7 @@ import './Home.css'
 import {useFetch} from '../../hooks/useFetch'
 import RecipeList from '../../components/RecipeList';
 const Home = () => {
-    const {data, isPending, error} = useFetch("http://localhost:3000/recipes");
+    const {data, isPending, error} = useFetch("https://cooking-komi013.onrender.com/recipes");
     return (  
         <div className='Home'>
             { error && <p className='error'> {error} </p> }
