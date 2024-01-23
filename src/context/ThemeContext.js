@@ -15,7 +15,8 @@ const themeReducer = ( state, action) =>{
 export function ThemeProvider( {children}){
     const [state, dispatch] = useReducer( themeReducer , {
         color:'#58249c',
-        mode : 'light'
+        mode : 'light',
+        recipeUrl : 'https://cooking-komi013.onrender.com/recipes/'
     });
 
     const changeColor = ( color ) =>{

@@ -1,8 +1,10 @@
 import './Home.css'
 import {useFetch} from '../../hooks/useFetch'
 import RecipeList from '../../components/RecipeList';
+import { useTheme} from '../../hooks/useTheme';
 const Home = () => {
-    const {data, isPending, error} = useFetch("https://cooking-komi013.onrender.com/recipes");
+    const {recipeUrl}= useTheme();
+    const {data, isPending, error} = useFetch(recipeUrl);
     return (  
         <div className='Home'>
             { error && <p className='error'> {error} </p> }

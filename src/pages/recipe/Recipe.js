@@ -4,8 +4,9 @@ import { useParams } from 'react-router-dom'
 import {useTheme} from '../../hooks/useTheme'
 const Recipe = () => {
     const id = useParams().id;
-    const {data: recipe, isPending, error} = useFetch( "https://cooking-komi013.onrender.com/recipes/" + id);
-    const {mode} = useTheme();
+    
+    const {mode, recipeUrl} = useTheme();
+    const {data: recipe, isPending, error} = useFetch( recipeUrl + id);
     return ( 
         <div className= {`recipe ${mode}`}>
             {error && <p className='error' > {error} </p> }

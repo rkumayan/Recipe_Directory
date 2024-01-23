@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import './Create.css'
 import {useRef, useState} from 'react';
-
+import { useTheme } from '../../hooks/useTheme';
 const Create = () => {
     const [title, setTitle] = useState('');
     const [method, setMethod] = useState('');
@@ -10,12 +10,13 @@ const Create = () => {
     const [newIngredient, setNewIngredient] = useState('');
     const ingredientInput = useRef(null);
     const navigate = useNavigate();
+    const {recipeUrl} = useTheme();
     
     const handleSubmit = (e) =>{
         e.preventDefault();
         console.log( title , method , cookingTime, ingredients);
         const obj = { title , ingredients, method, cookingTime};
-        fetch("https://cooking-komi013.onrender.com/recipes/", {
+        fetch(recipeUrl, {
             method: "POST",
             body: JSON.stringify(obj),
             headers: { "Content-type": "application/json; charset=UTF-8"}
