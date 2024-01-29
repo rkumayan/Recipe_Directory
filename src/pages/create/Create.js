@@ -2,6 +2,8 @@ import { useNavigate } from 'react-router-dom';
 import './Create.css'
 import {useRef, useState} from 'react';
 import { useTheme } from '../../hooks/useTheme';
+
+import {projectFirestore} from '../../firebase/config'
 const Create = () => {
     const [title, setTitle] = useState('');
     const [method, setMethod] = useState('');
@@ -12,20 +14,19 @@ const Create = () => {
     const navigate = useNavigate();
     const {recipeUrl} = useTheme();
     
-    const handleSubmit = (e) =>{
+    const handleSubmit = async (e) =>{
         e.preventDefault();
         console.log( title , method , cookingTime, ingredients);
         const obj = { title , ingredients, method, cookingTime};
-        fetch(recipeUrl, {
-            method: "POST",
-            body: JSON.stringify(obj),
-            headers: { "Content-type": "application/json; charset=UTF-8"}
-        })
-        .then( data => {
-            console.log(data)
-            navigate("/");            
-        })
-        .catch( err => console.log(err));
+        
+        try{
+            await projectFirestore.collection('recipes').add(obj)
+            navigate("/"); 
+        }
+        catch(err){
+            console.log(err);
+        }
+        
     }
     const handleAdd = (e) =>{
         e.preventDefault();
