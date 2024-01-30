@@ -15,8 +15,8 @@ const Recipe = () => {
 
     useEffect( ()=>{
         setIsPending(true);
-        projectFirestore.collection('recipes').doc(id).get()
-            .then( doc=>{
+        const unsubscibe = projectFirestore.collection('recipes').doc(id)
+            .onSnapshot( doc=>{
                 if( doc.exists){
                     setIsPending(false);
                     setRecipe( doc.data());
@@ -25,7 +25,14 @@ const Recipe = () => {
                     setIsPending(false);
                     setError('Could not fetch the recipe')
                 }
+            }, err =>{
+                setIsPending(false);
+                setError(err.message);
             })
+
+        return () =>{
+            unsubscibe();
+        }
     }, [id])
     return ( 
         <div className= {`recipe ${mode}`}>
