@@ -9,9 +9,7 @@ const RecipeList = ( {recipes}) => {
 
     const handleDelete = (id)=>{
         projectFirestore.collection('recipes').doc(id).delete()
-            .then( () => {
-                window.location.reload(false);
-            })
+           
         
     }
     return ( 

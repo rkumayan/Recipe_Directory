@@ -1,7 +1,6 @@
 import './Home.css'
-import {useFetch} from '../../hooks/useFetch'
 import RecipeList from '../../components/RecipeList';
-import { useTheme} from '../../hooks/useTheme';
+
 
 import { projectFirestore } from '../../firebase/config';
 import { useEffect, useState} from 'react';
@@ -12,8 +11,7 @@ const Home = () => {
   
     useEffect( () =>{
         setIsPending(true)
-        projectFirestore.collection('recipes').get()
-            .then( (snapshot)=>{
+        const unSubscribe = projectFirestore.collection('recipes').onSnapshot( (snapshot)=>{
                 console.log(snapshot);
                 if(snapshot.empty){
                     setError(' No recipes to load')
@@ -27,11 +25,15 @@ const Home = () => {
                     setData(results);
                     setIsPending(false);
                 }
-            })
-            .catch( err =>{
+            }, (err)=>{
                 setError(err.message);
                 setIsPending(false);
             })
+        return ()=>{
+            // remove the connection to firebase when the Home component is unmounted
+            unSubscribe();
+        }
+            
     } , []);
 
     
